@@ -42,49 +42,72 @@ const Home: NextPage = () => {
   };
 
   return (
-    <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>Empretienda a Wix</h1>
-      <p style={{ marginBottom: '20px', lineHeight: '1.5' }}>
-        Esta herramienta te permite convertir archivos Excel exportados desde Empretienda al formato CSV compatible con Wix. 
-        Simplemente sube tu archivo Excel y obtendrás un archivo CSV listo para importar en tu tienda Wix.
-      </p>
-      <form onSubmit={handleSubmit} encType="multipart/form-data" style={{ marginTop: '20px' }}>
-        <div style={{ marginBottom: '15px' }}>
-          <input
-            type="file"
-            name="file"
-            accept=".xlsx"
-            required
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <main style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', flex: '1' }}>
+        <h1>Empretienda a Wix</h1>
+        <p style={{ marginBottom: '20px', lineHeight: '1.5' }}>
+          Esta herramienta te permite convertir archivos Excel exportados desde Empretienda al formato CSV compatible con Wix. 
+          Simplemente sube tu archivo Excel y obtendrás un archivo CSV listo para importar en tu tienda Wix.
+        </p>
+        <form onSubmit={handleSubmit} encType="multipart/form-data" style={{ marginTop: '20px' }}>
+          <div style={{ marginBottom: '15px' }}>
+            <input
+              type="file"
+              name="file"
+              accept=".xlsx"
+              required
+              disabled={isLoading}
+              style={{ marginBottom: '10px' }}
+            />
+          </div>
+          <button 
+            type="submit" 
             disabled={isLoading}
-            style={{ marginBottom: '10px' }}
-          />
-        </div>
-        <button 
-          type="submit" 
-          disabled={isLoading}
-          style={{
-            padding: '8px 16px',
-            backgroundColor: '#0070f3',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: isLoading ? 'not-allowed' : 'pointer'
-          }}
-        >
-          {isLoading ? 'Convirtiendo...' : 'Convertir'}
-        </button>
-        {isLoading && (
-          <div style={{ marginTop: '10px' }}>
-            <p>Procesando archivo, por favor espere...</p>
-          </div>
-        )}
-        {error && (
-          <div style={{ marginTop: '10px', color: 'red' }}>
-            <p>{error}</p>
-          </div>
-        )}
-      </form>
-    </main>
+            style={{
+              padding: '8px 16px',
+              backgroundColor: '#0070f3',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: isLoading ? 'not-allowed' : 'pointer'
+            }}
+          >
+            {isLoading ? 'Convirtiendo...' : 'Convertir'}
+          </button>
+          {isLoading && (
+            <div style={{ marginTop: '10px' }}>
+              <p>Procesando archivo, por favor espere...</p>
+            </div>
+          )}
+          {error && (
+            <div style={{ marginTop: '10px', color: 'red' }}>
+              <p>{error}</p>
+            </div>
+          )}
+        </form>
+      </main>
+      <footer style={{ 
+        padding: '20px', 
+        textAlign: 'center',
+        borderTop: '1px solid #eaeaea',
+        marginTop: 'auto'
+      }}>
+        <p>
+          Crédito: <a 
+            href="https://www.linkedin.com/in/adriansteinsleger/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              color: '#0070f3',
+              textDecoration: 'none',
+              fontWeight: 'bold'
+            }}
+          >
+            Adrián Steinsleger
+          </a>
+        </p>
+      </footer>
+    </div>
   );
 };
 
