@@ -5,7 +5,7 @@ Esta aplicación web te permite convertir archivos de Excel exportados desde Emp
 ## ¿Cómo usar?
 
 1. Exporta tus productos desde Empretienda en formato Excel
-2. Visita la aplicación en [https://et2wix-steinslegers-projects.vercel.app/](https://et2wix-steinslegers-projects.vercel.app/)
+2. Visita la aplicación en [https://et2wix.vercel.app/](https://et2wix.vercel.app/)
 3. Sube tu archivo Excel
 4. Descarga el archivo CSV listo para importar en Wix
 
