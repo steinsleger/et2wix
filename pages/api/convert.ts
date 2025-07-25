@@ -207,8 +207,13 @@ export default async function handler(
       const cleanCsv = csv.trim();
       await unlink(file.filepath);
 
+      // Get original filename without extension
+      const originalName = file.originalFilename?.replace(/\.[^/.]+$/, '') || 'wix-import';
+      const csvFilename = `${originalName}.csv`;
+
       res.setHeader('Content-Type', 'text/csv; charset=utf-8');
-      res.setHeader('Content-Disposition', 'attachment; filename="wix-import.csv"');
+      res.setHeader('Content-Disposition', `attachment; filename="${csvFilename}"`);
+      res.setHeader('Access-Control-Expose-Headers', 'Content-Disposition');
       return res.status(200).send(cleanCsv);
 
     } catch (error) {
