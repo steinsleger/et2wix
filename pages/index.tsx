@@ -92,8 +92,9 @@ const Home: NextPage = () => {
         borderTop: '1px solid #eaeaea',
         marginTop: 'auto'
       }}>
-        <p>
-          Crédito: <a 
+        <p style={{ marginBottom: '0' }}>
+          Crédito: Adrián Steinsleger (
+          <a 
             href="https://www.linkedin.com/in/adriansteinsleger/" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -103,8 +104,22 @@ const Home: NextPage = () => {
               fontWeight: 'bold'
             }}
           >
-            Adrián Steinsleger
+            LinkedIn
           </a>
+          {' '}/{' '}
+          <a 
+            href="https://github.com/steinsleger" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              color: '#0070f3',
+              textDecoration: 'none',
+              fontWeight: 'bold'
+            }}
+          >
+            GitHub
+          </a>
+          )
         </p>
       </footer>
     </div>
