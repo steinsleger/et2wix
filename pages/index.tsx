@@ -11,6 +11,9 @@ const Home: NextPage = () => {
     setIsLoading(true);
 
     const formData = new FormData(e.currentTarget);
+    const fileInput = e.currentTarget.querySelector('input[type="file"]') as HTMLInputElement;
+    const originalFileName = fileInput.files?.[0]?.name || 'converted-file';
+    const newFileName = originalFileName.replace(/\.[^/.]+$/, '') + '.csv';
 
     try {
       const response = await fetch('/api/convert', {
@@ -26,7 +29,7 @@ const Home: NextPage = () => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'converted-file.wix';
+      a.download = newFileName;
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
